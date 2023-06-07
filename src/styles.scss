@@ -1,0 +1,17 @@
+@import 'styles/variables';
+
+*{
+  font-family: 'Varela Round';
+}
+
+html,
+body {
+	color: $text_Color;
+	height: 100%;
+    background-color: $primary_background-color;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

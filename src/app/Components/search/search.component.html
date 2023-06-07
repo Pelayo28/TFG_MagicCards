@@ -1,0 +1,10 @@
+<mat-form-field appearance="outline" color="accent">
+	<mat-label>
+		<mat-icon>search</mat-icon>
+		<span>Buscar...</span>
+	</mat-label>
+	<input matInput type="text" placeholder="Búsqueda" [(ngModel)]="searchText" (keyup.enter)="searchName()"/>
+	<button *ngIf="searchText != ''" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()">
+		<mat-icon>close</mat-icon>
+	</button>
+</mat-form-field>

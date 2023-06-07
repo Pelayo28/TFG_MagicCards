@@ -1,0 +1,116 @@
+@import "../../../styles/variables";
+
+.container {
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.content {
+		border-radius: 2%;
+		padding: 40px;
+		text-align: center;
+
+		.welcome-heading {
+			color: $text_Color;
+			font-size: 32px;
+			margin-bottom: 10px;
+		}
+
+		.tagline {
+			color: $text_Color;
+			font-size: 18px;
+			margin-bottom: 30px;
+		}
+
+		.app-info {
+			background-color: $background_Color;
+			padding: 20px;
+			margin-bottom: 30px;
+
+			.section-heading {
+				color: $text_Color;
+				font-size: 24px;
+				margin-bottom: 10px;
+			}
+
+			p {
+				color: $text_Color;
+				margin-bottom: 15px;
+			}
+
+			ul.custom-list {
+				// list-style-type: none;
+				padding: 0;
+				text-align: left;
+				margin-left: 20px;
+
+				li {
+					color: $text_Color;
+					margin-bottom: 5px;
+					text-align: left;
+				}
+			}
+		}
+
+		.advantages {
+			background-color: $background_Color;
+			padding: 20px;
+
+			.section-heading {
+				color: $text_Color;
+				font-size: 24px;
+				margin-bottom: 10px;
+			}
+
+			ul.custom-list {
+				// list-style-type: none;
+				padding: 0;
+				text-align: left;
+				margin-left: 20px;
+
+				li {
+					color: $text_Color;
+					margin-bottom: 5px;
+					text-align: left;
+				}
+			}
+		}
+
+		.join-message {
+			color: $text_Color;
+			font-size: 18px;
+			margin: 15px 0px;
+		}
+
+		button {
+			background-color: $button_background_Color;
+			color: #FFFFFF;
+			font-size: 16px;
+			padding: 10px 20px;
+			border: none;
+			cursor: pointer;
+			transition: background-color 0.3s;
+
+			&:hover {
+				background-color: darken($button_background_Color, 10%);
+			}
+		}
+	}
+}
+
+mat-card{
+	border-radius: 7px;
+	box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+.login-message{
+	a {
+		text-decoration: none;
+		color: $text_Color;
+
+		&:hover{
+			color: mix($text_Color, #FFFFFF, 30%);
+		}
+	}
+}

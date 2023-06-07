@@ -1,0 +1,28 @@
+<div *ngIf="errorMessage" class="error-container">
+	<mat-icon class="mr-2">error_outline</mat-icon>
+	<span class="error-message">{{ errorMessage }}</span>
+</div>
+
+
+<section class="publications">
+	<mat-card class="card" *ngFor="let publication of publications">
+		<mat-card-header>
+			<mat-card-title>
+				{{publication.nameOfProduct}}
+			</mat-card-title>
+		</mat-card-header>
+
+		<mat-divider></mat-divider>
+
+		<mat-card-content>
+			<mat-icon>person</mat-icon>
+			{{publication.user_name}}
+			<br>
+			<mat-icon>assignment</mat-icon>
+			{{publication.description}}
+		</mat-card-content>
+		<mat-card-actions>
+			<button mat-flat-button color="accent"> Ver </button>
+		</mat-card-actions>
+	</mat-card>
+</section>

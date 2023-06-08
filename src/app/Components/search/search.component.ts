@@ -17,7 +17,8 @@ export class SearchComponent {
 
 	constructor(
 		private apiService: ApiService,
-		private route: ActivatedRoute
+		private route: ActivatedRoute,
+		private router: Router
 	) { }
 
 	//DESDE AQUI
@@ -50,6 +51,7 @@ export class SearchComponent {
 	}
 
 	searchName() {
+		this.router.navigate(['login'])
 		let buscador = this.searchText;
 
 		this.searchCards({ "name": buscador }, this.nPage);

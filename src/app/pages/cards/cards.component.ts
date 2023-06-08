@@ -4,83 +4,97 @@ import { ApiService } from '../services/api/api.service';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
-
-
 @Component({
-	selector: 'app-cards',
-	templateUrl: './cards.component.html',
-	styleUrls: ['./cards.component.scss']
+  selector: 'app-cards',
+  templateUrl: './cards.component.html',
+  styleUrls: ['./cards.component.scss']
 })
 export class CardsComponent implements OnInit {
-	@ViewChild(MatPaginator) paginator!: MatPaginator;
-	totalCards: number = 0; // Total de cartas disponibles
-cardsPerPage: number = 10; // Número de cartas por página
-currentPageIndex: number = 0; // Índice de la página actual
-queryParamsSubscription: Subscription | undefined; // Suscripción al cambio de parámetros de consulta
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  totalCards: number = 100; // Total de cartas disponibles
+  pageSizeOptions = [10, 25, 50, 100];
+  cardsPerPage: number = this.pageSizeOptions[0]; // Número de cartas por página
+  currentPageIndex: number = 1; // Índice de la página actual
+  queryParamsSubscription: Subscription | undefined; // Suscripción al cambio de parámetros de consulta
 
-	cards: any[] = [];
-	errorMessage: string | undefined;
+  cards: any[] = [];
+  displayedCards: any[] = []; // Cartas a mostrar en la página actual
+  errorMessage: string | undefined;
+  searchTerm: any;
 
+  constructor(
+    private route: ActivatedRoute,
+    private apiService: ApiService
+  ) { }
 
-	constructor(
-		private route: ActivatedRoute,
-		private apiService: ApiService
-	) { }
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.searchTerm = params['name'];
+      const nPage = params['nPage'];
 
-	ngOnInit(): void {
-		this.route.queryParams.subscribe(params => {
-		  const searchTerm = params['name'];
-		  const nPage = params['nPage'];
+      this.apiService.searchCards({ "name": this.searchTerm }, nPage)
+        .subscribe(
+          (response) => {
+            console.log('Resultados de búsqueda:', response);
+            if (response.cards.length > 0) {
+              this.cards = response.cards.filter((card: any) => card.imageUrl);
+              this.totalCards = this.cards.length;
+              this.paginator.pageIndex = nPage - 1;
 
-		  this.apiService.searchCards({ "name": searchTerm }, nPage)
-			.subscribe(
-			  (response) => {
-				console.log('Resultados de búsqueda:', response);
-				if (response.cards.length > 0) {
-				  this.cards = response.cards;
-				  this.totalCards = response.totalCount;
-				  this.paginator.pageIndex = nPage - 1;
-				} else {
-				  this.errorMessage = 'No hay resultados para esta búsqueda. Por favor, revisa que esté todo bien y prueba de nuevo.';
-				  this.cards = [];
-				  this.totalCards = 0;
-				}
-			  },
-			  (error) => {
-				console.error('Error al obtener las cartas:', error);
-				this.errorMessage = 'No se pudo obtener las cartas. Por favor, inténtalo de nuevo más tarde.';
-				this.cards = [];
-				this.totalCards = 0;
-			  }
-			);
-		});
-	  }
+              // Actualizar las cartas a mostrar en la página actual
+              this.updateDisplayedCards();
+            } else {
+              this.errorMessage = 'No hay resultados para esta búsqueda. Por favor, revisa que esté todo bien y prueba de nuevo.';
+              this.cards = [];
+              this.totalCards = 0;
+            }
+          },
+          (error) => {
+            console.error('Error al obtener las cartas:', error);
+            this.errorMessage = 'No se pudo obtener las cartas. Por favor, inténtalo de nuevo más tarde.';
+            this.cards = [];
+            this.totalCards = 0;
+          }
+        );
+    });
+  }
 
+  onPageChange(event: PageEvent) {
+    this.currentPageIndex = event.pageIndex + 1;
 
+    // Actualizar las cartas a mostrar en la página actual
+    this.updateDisplayedCards();
+  }
 
-	loadCards(searchTerm: string) {
-		const currentPage = this.paginator.pageIndex + 1;
-		this.apiService.searchCards({ "name": searchTerm }, currentPage)
-			.subscribe(
-				(response) => {
-					console.log('Resultados de búsqueda:', response);
-					if (response.cards.length > 0) {
-						this.cards = response.cards;
-					} else {
-						this.errorMessage = 'No hay resultados para esta búsqueda. Por favor, revisa que esté todo bien y prueba de nuevo.';
-						this.cards = [];
-					}
-				},
-				(error) => {
-					console.error('Error al obtener las cartas:', error);
-					this.errorMessage = 'No se pudo obtener las cartas. Por favor, inténtalo de nuevo más tarde.';
-					this.cards = [];
-				}
-			);
-	}
+  updateDisplayedCards() {
+    const startIndex = (this.currentPageIndex - 1) * this.cardsPerPage;
+    const endIndex = startIndex + this.cardsPerPage;
+    this.displayedCards = this.cards.slice(startIndex, endIndex);
+  }
 }
 
 
+
+// onPageChange() {
+// 	const currentPage = this.currentPageIndex + 1;
+// 	this.apiService.searchCards({ "name": this.searchTerm }, currentPage)
+// 		.subscribe(
+// 			(response) => {
+// 				console.log('Resultados de búsqueda:', response);
+// 				if (response.cards.length > 0) {
+// 					this.cards = response.cards;
+// 				} else {
+// 					this.errorMessage = 'No hay resultados para esta búsqueda. Por favor, revisa que esté todo bien y prueba de nuevo.';
+// 					this.cards = [];
+// 				}
+// 			},
+// 			(error) => {
+// 				console.error('Error al obtener las cartas:', error);
+// 				this.errorMessage = 'No se pudo obtener las cartas. Por favor, inténtalo de nuevo más tarde.';
+// 				this.cards = [];
+// 			}
+// 		);
+// }
 
 
 

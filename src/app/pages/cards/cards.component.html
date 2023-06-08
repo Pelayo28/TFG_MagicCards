@@ -12,12 +12,12 @@
 
 <section class="cards">
 	<ng-container *ngFor="let card of displayedCards">
-		<ng-container *ngIf="card.imageUrl">
-			<mat-card class="card">
-				<mat-card-content>
-					<img src="{{ card.imageUrl }}" alt="{{ card.name }}" class="card-image" />
-				</mat-card-content>
-			</mat-card>
-		</ng-container>
+	  <ng-container *ngIf="card.imageUrl">
+		<mat-card class="card">
+		  <mat-card-content>
+			<img src="{{ card.imageUrl }}" alt="{{ card.name }}" class="card-image" />
+		  </mat-card-content>
+		</mat-card>
+	  </ng-container>
 	</ng-container>
-</section>
+  </section>

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CardsRoutingModule } from './cards-routing.module';
 import { CardsComponent } from './cards.component';
 import { MaterialModule } from 'src/app/material.module';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { MaterialModule } from 'src/app/material.module';
   imports: [
     CommonModule,
     CardsRoutingModule,
-	MaterialModule
+	MaterialModule,
+	MatPaginatorModule
   ]
 })
 export class CardsModule { }

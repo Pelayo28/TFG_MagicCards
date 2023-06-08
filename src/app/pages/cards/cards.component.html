@@ -1,28 +1,18 @@
 <div *ngIf="errorMessage" class="error-container">
 	<mat-icon class="mr-2">error_outline</mat-icon>
 	<span class="error-message">{{ errorMessage }}</span>
-</div>
+  </div>
 
+  <section class="cards">
+	<ng-container *ngFor="let card of cards">
+	  <ng-container *ngIf="card.imageUrl">
+		<mat-card class="card">
+		  <mat-card-content>
+			<img src="{{ card.imageUrl }}" alt="{{ card.name }}" class="card-image">
+		  </mat-card-content>
+		</mat-card>
+	  </ng-container>
+	</ng-container>
 
-<section class="cards">
-	<!-- <mat-card class="card" *ngFor="let card of cards">
-		<mat-card-header>
-			<mat-card-title>
-				{{card.nameOfProduct}}
-			</mat-card-title>
-		</mat-card-header>
-
-		<mat-divider></mat-divider>
-
-		<mat-card-content>
-			<mat-icon>person</mat-icon>
-			{{card.user_name}}
-			<br>
-			<mat-icon>assignment</mat-icon>
-			{{card.description}}
-		</mat-card-content>
-		<mat-card-actions>
-			<button mat-flat-button color="accent"> Ver </button>
-		</mat-card-actions>
-	</mat-card> -->
+	<!-- <mat-paginator [length]="totalCards" [pageSize]="cardsPerPage" [pageIndex]="currentPageIndex" (page)="onPageChange($event)"></mat-paginator> -->
 </section>

@@ -34,7 +34,6 @@ section.cards {
 		width: 100%;
 	}
 
-	/* Estilos adicionales para centrar el conjunto de cartas */
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 100%;
@@ -46,16 +45,11 @@ section.cards {
 	@media (min-width: 800px) {
 		max-width: calc(400px * 8 + 0.3% * 15);
 	}
-
-	/* Agrega más estilos media queries según sea necesario para más tamaños de pantalla */
 }
-
 
 mat-paginator{
 	margin-top: 5vh;
 }
-
-
 
 .error-container {
 	background-color: #f8d7da;

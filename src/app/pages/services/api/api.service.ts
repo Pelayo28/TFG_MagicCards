@@ -11,7 +11,6 @@ export class ApiService {
 
 	searchCards(query: any): Observable<any> {
 		let params = new HttpParams();
-		// params = params.append('page', page.toString());
 
 		for (const key in query) {
 		  if (query.hasOwnProperty(key)) {
@@ -28,31 +27,4 @@ export class ApiService {
 		  })
 		);
 	  }
-	// searchCards(query: any, page: number): void {
-	// 	let itemHtml = "";
-	// 	let totalPages = 0;
-
-	// 	let options = { method: "GET" };
-
-	// 	query["page"] = page;
-
-	// 	let url = "https://api.magicthegathering.io/v1/cards?" + new URLSearchParams(query);
-	// 	console.log(url);
-	// 	fetch(url, options)
-	// 		.then((res) => {
-	// 			if (res.ok) {
-	// 				return res.json();
-	// 			} else {
-	// 				throw new Error("HTTP-Error: " + res.status);
-	// 			}
-	// 		})
-	// 		.then((resJson) => {
-	// 			console.log(resJson);
-	// 			let resHeaders = resJson.headers;
-	// 		})
-	// 		.catch((error) => {
-	// 			console.log('error :>> ', error);
-	// 			alert(error.message);
-	// 		});
-	// }
 }

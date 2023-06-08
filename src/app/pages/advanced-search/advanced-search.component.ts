@@ -39,14 +39,10 @@ export class AdvancedSearchComponent {
 
 		sessionStorage.setItem('query', JSON.stringify(filteredData));
 
-		// // Generar la URL con los parámetros de búsqueda avanzada
+		// Generar la URL con los parámetros de búsqueda avanzada
 		const queryParams = { ...filteredData, nPage: 1};
 		console.log('queryParams :>> ', queryParams);
 		this.router.navigate(['/cards'], { queryParams });
-		// const url = '/cards?' + this.serializeQueryParams(queryParams);
-
-		// Navegar a la página de cartas con los parámetros de búsqueda avanzada
-		// this.router.navigate([url]);
 	}
 
 	filterEmptyProperties(obj: { [key: string]: any }): { [key: string]: any } {

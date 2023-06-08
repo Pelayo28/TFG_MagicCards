@@ -215,7 +215,6 @@ main {
 	}
 }
 
-/* https://goo.gl/v323yz */
 @keyframes translateLeft {
 	0% {
 		transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 150, 0, 0, 1);
@@ -260,7 +259,6 @@ main {
 	}
 }
 
-/* https://goo.gl/p1Hnde */
 @keyframes translateRight {
 	0% {
 		transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -150, 0, 0, 1);

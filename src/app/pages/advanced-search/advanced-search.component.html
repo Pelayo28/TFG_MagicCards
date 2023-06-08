@@ -4,14 +4,10 @@
 		<input matInput type="text" id="nombre" name="nombre" [(ngModel)]="formData.nombre" />
 	</mat-form-field>
 
-
-
 	<mat-form-field>
 		<mat-label>Coste convertido de maná:</mat-label>
 		<input matInput type="number" id="coste" name="coste" max="16" min="0" [(ngModel)]="formData.coste" />
 	</mat-form-field>
-
-
 
 	<h3>Incluyen <u>al menos</u> estos colores:</h3>
 	<div class="color-container">
@@ -40,8 +36,6 @@
     </mat-checkbox> -->
 	</div>
 
-
-
 	<mat-form-field>
 		<mat-label>Tipo:</mat-label>
 		<mat-select id="tipo" name="tipo" [(ngModel)]="formData.tipo">
@@ -56,14 +50,10 @@
 		</mat-select>
 	</mat-form-field>
 
-
-
 	<mat-form-field>
 		<mat-label>Subtipo:</mat-label>
 		<input matInput type="text" id="subtipo" name="subtipo" [(ngModel)]="formData.subtipo" />
 	</mat-form-field>
-
-
 
 	<mat-form-field>
 		<mat-label>Rareza:</mat-label>
@@ -76,16 +66,5 @@
 		</mat-select>
 	</mat-form-field>
 
-
 	<button mat-raised-button type="submit">Buscar</button>
 </form>
-
-<!-- Mostrar resultados de la búsqueda -->
-<!-- <div id="resultados" *ngIf="searchResults.length > 0">
-  <h2>Resultados de la búsqueda:</h2>
-  <ul>
-    <li *ngFor="let card of searchResults">
-      {{ card.name }} - {{ card.type }}
-    </li>
-  </ul>
-</div> -->

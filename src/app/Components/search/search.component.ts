@@ -50,21 +50,12 @@ export class SearchComponent {
 			});
 	}
 
-	// searchName() {
-	// 	// this.router.navigate(['resultQuery'])
-	// 	this.router.navigate(['/cards'])
-	// 	let buscador = this.searchText;
-
-	// 	this.searchCards({ "name": buscador }, this.nPage);
-	// }
 	searchName() {
 		let buscador = this.searchText;
 
-		// this.apiService.searchCards({ "name": buscador }, this.nPage);
-
 		// Redirecciona a la página "cards" y pasa los parámetros de búsqueda y nPage
 		this.router.navigate(['/cards'], { queryParams: { name: buscador, nPage: this.nPage } });
-	  }
+	}
 
 
 

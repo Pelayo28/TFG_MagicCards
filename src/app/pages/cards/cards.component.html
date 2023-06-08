@@ -3,6 +3,10 @@
 	<span class="error-message">{{ errorMessage }}</span>
 </div>
 
+<div class="loading-scene" *ngIf="isLoading">
+	<app-loading></app-loading>
+</div>
+
 <mat-paginator #paginator
                (page)="onPageChange($event)"
                [length]="totalCards"
@@ -10,7 +14,7 @@
                [pageSizeOptions]="pageSizeOptions">
 </mat-paginator>
 
-<section class="cards">
+<section class="cards" >
 	<ng-container *ngFor="let card of displayedCards">
 	  <ng-container *ngIf="card.imageUrl">
 		<mat-card class="card">

@@ -1,0 +1,91 @@
+<form id="formulario" (ngSubmit)="dataSearch()" #formulario>
+	<mat-form-field>
+		<mat-label>Nombre:</mat-label>
+		<input matInput type="text" id="nombre" name="nombre" [(ngModel)]="formData.nombre" />
+	</mat-form-field>
+
+
+
+	<mat-form-field>
+		<mat-label>Coste convertido de maná:</mat-label>
+		<input matInput type="number" id="coste" name="coste" max="16" min="0" [(ngModel)]="formData.coste" />
+	</mat-form-field>
+
+
+
+	<h3>Incluyen <u>al menos</u> estos colores:</h3>
+	<div class="color-container">
+		<mat-checkbox id="blanco" name="blanco" [(ngModel)]="formData.blanco">
+			<img src="../../../assets/img/blanco.png" />
+		</mat-checkbox>
+
+		<mat-checkbox id="azul" name="azul" [(ngModel)]="formData.azul">
+			<img src="../../../assets/img/azul.png" />
+		</mat-checkbox>
+
+		<mat-checkbox id="negro" name="negro" [(ngModel)]="formData.negro">
+			<img src="../../../assets/img/negro.png" />
+		</mat-checkbox>
+
+		<mat-checkbox id="rojo" name="rojo" [(ngModel)]="formData.rojo">
+			<img src="../../../assets/img/rojo.png" />
+		</mat-checkbox>
+
+		<mat-checkbox id="verde" name="verde" [(ngModel)]="formData.verde">
+			<img src="../../../assets/img/verde.png" />
+		</mat-checkbox>
+
+		<!-- <mat-checkbox id="incoloro" name="incoloro" [(ngModel)]="formData.incoloro">
+      <img src="../../../assets/img/incoloro.png">
+    </mat-checkbox> -->
+	</div>
+
+
+
+	<mat-form-field>
+		<mat-label>Tipo:</mat-label>
+		<mat-select id="tipo" name="tipo" [(ngModel)]="formData.tipo">
+			<mat-option value=""></mat-option>
+			<mat-option value="Creature">Criatura</mat-option>
+			<mat-option value="Instant">Instantáneo</mat-option>
+			<mat-option value="Sorcery">Conjuro</mat-option>
+			<mat-option value="Artifact">Artefacto</mat-option>
+			<mat-option value="Enchantment">Encantamiento</mat-option>
+			<mat-option value="Planeswalker">Planeswalker</mat-option>
+			<mat-option value="Land">Tierra</mat-option>
+		</mat-select>
+	</mat-form-field>
+
+
+
+	<mat-form-field>
+		<mat-label>Subtipo:</mat-label>
+		<input matInput type="text" id="subtipo" name="subtipo" [(ngModel)]="formData.subtipo" />
+	</mat-form-field>
+
+
+
+	<mat-form-field>
+		<mat-label>Rareza:</mat-label>
+		<mat-select id="rareza" name="rareza" [(ngModel)]="formData.rareza">
+			<mat-option value=""></mat-option>
+			<mat-option value="Common">Común</mat-option>
+			<mat-option value="Uncommon">Infrecuente</mat-option>
+			<mat-option value="Rare">Rara</mat-option>
+			<mat-option value="Mythic">Mítica</mat-option>
+		</mat-select>
+	</mat-form-field>
+
+
+	<button mat-raised-button type="submit">Buscar</button>
+</form>
+
+<!-- Mostrar resultados de la búsqueda -->
+<!-- <div id="resultados" *ngIf="searchResults.length > 0">
+  <h2>Resultados de la búsqueda:</h2>
+  <ul>
+    <li *ngFor="let card of searchResults">
+      {{ card.name }} - {{ card.type }}
+    </li>
+  </ul>
+</div> -->

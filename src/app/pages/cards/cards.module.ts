@@ -5,11 +5,13 @@ import { CardsRoutingModule } from './cards-routing.module';
 import { CardsComponent } from './cards.component';
 import { MaterialModule } from 'src/app/material.module';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { LoadingComponent } from 'src/app/Components/loading/loading.component';
 
 
 @NgModule({
   declarations: [
-    CardsComponent
+    CardsComponent,
+	LoadingComponent
   ],
   imports: [
     CommonModule,

@@ -11,7 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PublicationComponent } from './pages/publications/publication_card/publicationCard.component';
+import { CardComponent } from './pages/cards/cards_card/cards_Card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -26,9 +26,9 @@ import { ApiService } from './pages/services/api/api.service';
 	declarations: [
 		AppComponent,
 		NavbarComponent,
-		PublicationComponent,
+		CardComponent,
 		FooterComponent,
-		SearchComponent
+		SearchComponent,
 	],
 	imports: [
 		BrowserModule,

@@ -51,7 +51,8 @@ export class SearchComponent {
 	}
 
 	searchName() {
-		this.router.navigate(['login'])
+		// this.router.navigate(['resultQuery'])
+		this.router.navigate(['/login'])
 		let buscador = this.searchText;
 
 		this.searchCards({ "name": buscador }, this.nPage);

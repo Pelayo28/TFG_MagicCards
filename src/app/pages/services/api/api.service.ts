@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class ApiService {
 	constructor(private http: HttpClient) { }
 
-	buscarEnAPI(searchTerm: string): Observable<any> {
+	getCards(searchTerm: string): Observable<any> {
 		const url = 'URL_DE_LA_API?parametro=' + searchTerm;
 		return this.http.get(url);
 	}

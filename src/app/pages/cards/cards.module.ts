@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { PublicationsRoutingModule } from './publications-routing.module';
-import { PublicationsComponent } from './publications.component';
+import { CardsRoutingModule } from './cards-routing.module';
+import { CardsComponent } from './cards.component';
 import { MaterialModule } from 'src/app/material.module';
 
 
 @NgModule({
   declarations: [
-    PublicationsComponent
+    CardsComponent
   ],
   imports: [
     CommonModule,
-    PublicationsRoutingModule,
+    CardsRoutingModule,
 	MaterialModule
   ]
 })
-export class PublicationsModule { }
+export class CardsModule { }

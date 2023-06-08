@@ -20,6 +20,8 @@ import { SearchComponent } from './Components/search/search.component';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from './pages/services/api/api.service';
+import { MatPaginatorIntl } from '@angular/material/paginator';
+import { CustomMatPaginator } from './paginator-es';
 
 
 @NgModule({
@@ -45,7 +47,13 @@ import { ApiService } from './pages/services/api/api.service';
 		MatInputModule,
 		FormsModule,
 	],
-	providers: [ApiService],
+	providers: [
+		ApiService,
+		{
+			provide: MatPaginatorIntl,
+			useClass: CustomMatPaginator
+		}
+	],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}
